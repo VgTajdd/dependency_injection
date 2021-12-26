@@ -11,10 +11,14 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(test_template test.cpp)
+file(GLOB APP_SOURCES
+    "${PROJECT_SOURCE_DIR}/src/pkg/*.cpp"
+)
+
+add_executable(test_template test.cpp ${APP_SOURCES})
 target_link_libraries(test_template gtest_main)
 target_include_directories(test_template
-    PRIVATE "${PROJECT_SOURCE_DIR}/lib/xyz/include"
+    PRIVATE "${PROJECT_SOURCE_DIR}/include"
 )
 
 include(GoogleTest)
