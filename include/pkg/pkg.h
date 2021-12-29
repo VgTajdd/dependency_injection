@@ -6,31 +6,16 @@ void printNumber( int number );
 
 int getFibonacci( int n );
 
-/////////////////////////////////////////////////////////////
 // TODO:
-// REGISTER SINGLETON SERVICE
-// REGISTER TRANSIENT SERVICE
-// SERVICES WITH PARAMETERS (AUTORESOLVE) IN RUNTIME
+// Register singleton service
+// Register transient service
+// Resolve services in runtime
 
 #include <typeinfo>
 #include <typeindex>
 #include <map>
 #include <iostream>
 #include <functional>
-
-struct Service
-{
-	virtual ~Service() = default;
-	virtual void run() = 0;
-};
-
-struct ServiceImpl : Service
-{
-	void run() override
-	{
-		std::cout << "ServiceImpl::run()" << std::endl;
-	}
-};
 
 struct ServiceDefinition
 {
@@ -95,7 +80,7 @@ public:
 	}
 	int value() override
 	{
-		return pow( 3, this->power );
+		return std::pow( 3, this->power );
 	}
 	int power;
 };
