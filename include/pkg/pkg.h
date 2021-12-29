@@ -16,7 +16,7 @@ int getFibonacci( int n );
 #include <map>
 #include <iostream>
 #include <functional>
-
+#include <cmath>
 struct ServiceDefinition
 {
 	std::type_info const& type_info;
