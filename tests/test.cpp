@@ -1,6 +1,11 @@
 #include <gtest/gtest.h>
 
-#include <pkg/pkg.h>
+#include "pkg/pkg.h"
+#include "pkg/DIContainer.h"
+
+#include "ServicesInterfaces.h"
+#include "ServicesImplementations.h"
+#include "ClientClass.h"
 
 TEST( TemplateTest, Test1 )
 {
@@ -9,16 +14,30 @@ TEST( TemplateTest, Test1 )
 
 TEST( TemplateTest, Test2 )
 {
-	RegisterService<IPowerOfTwoGenerator, PowerOfTwoGenerator>();
-	const auto& service{ GetService<IPowerOfTwoGenerator>() };
+	DIContainer container;
+	container.registerService<IPowerOfTwoGenerator, PowerOfTwoGenerator>();
+	const auto& service{ container.getService<IPowerOfTwoGenerator>() };
 
 	EXPECT_EQ( service->value(), 2 );
 }
 
 TEST( TemplateTest, Test3 )
 {
-	RegisterService<IPowerOfThreeGenerator, PowerOfThreeGenerator, int>( 2 );
-	const auto& service{ GetService<IPowerOfThreeGenerator>() };
+	DIContainer container;
+	container.registerService<IPowerOfThreeGenerator, PowerOfThreeGenerator, int>( 2 );
+	const auto& service{ container.getService<IPowerOfThreeGenerator>() };
 
 	EXPECT_EQ( service->value(), 9 );
+}
+
+TEST( TemplateTest, Test4 )
+{
+	DIContainer container;
+	container.registerService<IPowerOfTwoGenerator, PowerOfTwoGenerator>();
+	container.registerService<IPowerOfThreeGenerator, PowerOfThreeGenerator, int>( 2 );
+
+	ClientClass client;
+	const auto result{ client.evaluate( container ) };
+
+	EXPECT_EQ( result, 11 );
 }
