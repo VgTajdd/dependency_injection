@@ -55,14 +55,3 @@ private:
 	 */
 	std::map<std::type_index, ServiceDefinition> services;
 };
-
-/*
-
-TODO:
-
-- [ ] Register singleton service
-- [ ] Register transient service
-- [ ] Resolve service's dependencies in runtime
-- [ ] Resolve services in runtime
-
-*/
