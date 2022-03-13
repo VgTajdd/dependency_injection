@@ -1,4 +1,4 @@
-# Template C++/CMake Project
+# C++ Dependency Injection Container
 
 Cross-platform CMake based project developed in C++.
 
