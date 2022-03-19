@@ -1,3 +1,9 @@
+// ========================================================================= //
+// Copyright (c) 2022 Agustin Jesus Durand Diaz.                             //
+// This code is licensed under the Apache License 2.0.                       //
+// DIContainer.h                                                             //
+// ========================================================================= //
+
 #pragma	once
 
 #include <map>
@@ -23,7 +29,7 @@ public:
 	template<class TInterface, class TImplementation, typename... TArgs>
 	void registerService( TArgs... args )
 	{
-		static_assert( std::is_base_of<TInterface, TImplementation>::value, "TImplementation must be derived from T" );
+		static_assert( std::is_base_of<TInterface, TImplementation>::value, "TImplementation must be derived from TInterface" );
 		const auto& typeInterface{ typeid( TInterface ) };
 		auto factory{ [=]() -> TInterface* { return new TImplementation( args... ); } };
 		services.emplace( std::type_index( typeInterface ), ServiceDefinition{ typeInterface, typeInterface, factory } );
@@ -31,7 +37,7 @@ public:
 
 	/**
 	 * @brief getService gets a service instance.
-	 * @param type_info the type info of the service.
+	 * @param TInterface the interface of the service.
 	 * @return a pointer to the service instance.
 	 */
 	template<class TInterface>
