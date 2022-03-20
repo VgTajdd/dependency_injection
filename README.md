@@ -6,6 +6,17 @@ Cross-platform CMake based project developed in C++.
 
 ## Usage
 
+Run one of these scripts for building or rebuilding the project depending on your OS:
+
+```
+run_build_debug.bat
+run_build_debug.sh
+rebuild_debug.bat
+rebuild_debug.sh
+```
+
+If you prefer to manually build the project, use the following commands.
+
 ### Debug and Release
 
 #### Single configurations (CLI)
@@ -20,8 +31,6 @@ cmake -S. -B build -DCMAKE_BUILD_TYPE=Release   # Configure.
 cmake --build build --config Release -j         # Build.
 ```
 
-For ```Linux```, you can use the script ```build_debug.sh```.
-
 #### Multi-configuration
 ```js
 cmake -S. -B build -DCMAKE_CONFIGURATION_TYPES="Debug;Release"
@@ -32,10 +41,17 @@ Then you could use ```Visual Studio``` if you are using ```Windows```.
 
 ## Tests
 
-Use the following commands:
+Run one of these scripts for building or rebuilding the tests depending on your OS:
+
+```
+run_tests.bat
+run_tests.sh
+```
+
+If you prefer to manually run the tests, run the following commands:
 
 ```bash
-cmake --build build/tests --target test_template -j
+cmake --build build/tests --target test_di -j
 cd build && ctest --output-on-failure && cd ..
 ```
 
