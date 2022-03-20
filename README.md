@@ -41,7 +41,7 @@ Then you could use ```Visual Studio``` if you are using ```Windows```.
 
 ## Tests
 
-Run one of these scripts for building or rebuilding the tests depending on your OS:
+Run one of these scripts to run the tests depending on your OS:
 
 ```
 run_tests.bat
