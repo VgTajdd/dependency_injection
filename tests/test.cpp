@@ -13,12 +13,12 @@
 #include "ServicesImplementations.h"
 #include "ClientClass.h"
 
-TEST( TemplateTest, Test1 )
+TEST( GenericTest, Test1 )
 {
 	EXPECT_EQ( getFibonacci( 5 ), 5 );
 }
 
-TEST( TemplateTest, Test2 )
+TEST( DIContainerTest, Test1 )
 {
 	DIContainer container;
 	container.registerService<IPowerOfTwoGenerator, PowerOfTwoGenerator>();
@@ -27,7 +27,7 @@ TEST( TemplateTest, Test2 )
 	EXPECT_EQ( service->value(), 2 );
 }
 
-TEST( TemplateTest, Test3 )
+TEST( DIContainerTest, Test2 )
 {
 	DIContainer container;
 	container.registerService<IPowerOfThreeGenerator, PowerOfThreeGenerator, int>( 2 );
@@ -36,7 +36,7 @@ TEST( TemplateTest, Test3 )
 	EXPECT_EQ( service->value(), 9 );
 }
 
-TEST( TemplateTest, Test4 )
+TEST( DIContainerTest, Test3 )
 {
 	DIContainer container;
 	container.registerService<IPowerOfTwoGenerator, PowerOfTwoGenerator>();
