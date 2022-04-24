@@ -2,7 +2,7 @@
 
 Cross-platform CMake based project developed in C++.
 
-[![CMake-CI](https://github.com/VgTajdd/cmake_vscode_template/actions/workflows/cmake.yml/badge.svg?branch=main)](https://github.com/VgTajdd/cmake_vscode_template/actions/workflows/cmake.yml)
+[![CMake-CI](https://github.com/VgTajdd/dependency_injection/actions/workflows/cmake.yml/badge.svg)](https://github.com/VgTajdd/dependency_injection/actions/workflows/cmake.yml)
 
 ## Usage
 
