@@ -9,7 +9,6 @@
 
 #include "ServicesInterfaces.h"
 #include "ServicesImplementations.h"
-#include "ClientClass.h"
 
 int main( int, char** )
 {
